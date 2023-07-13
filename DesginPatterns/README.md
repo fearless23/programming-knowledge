@@ -1,6 +1,6 @@
 # Design Patterns
 
-- [Website](https://refactoring.guru/design-patterns/catalog)
+[Refactoring Guru Website](https://refactoring.guru/design-patterns/catalog)
 
 ## Creational Patterns
 These patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code.
