@@ -1,4 +1,5 @@
 # Design Patterns
+Patterns used in programming design to help write better code.
 
 [Refactoring Guru Website](https://refactoring.guru/design-patterns/catalog)
 
