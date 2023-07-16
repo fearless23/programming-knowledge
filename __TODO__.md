@@ -15,9 +15,3 @@ Publish all of these to new blog (or medium) and try getting ads money.
 - Purpose: 
 - To get famous in community for simplifying weird concepts
 - Better at communication
-
-
-
-## others
-Start with https://www.tutorialsteacher.com/javascript/javascript-number
-and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt

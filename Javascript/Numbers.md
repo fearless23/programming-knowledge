@@ -4,7 +4,7 @@
 
 
 ## Accuracy
-As seen in f64 or f32 (check [Numbers](../Numbers.md) & [DecimalToBinary](../DecimalToBinary.md)), we loose some accuracy when storing fractional values.
+As seen in f64 or f32 (check [Numbers](../Basics/Numbers.md) & [DecimalToBinary](../Basics/DecimalToBinary.md)), we loose some accuracy when storing fractional values.
 ```js
 let a = 0.2 + 0.1;
 console.log(a) // 0.3000000000000004, not 0.3
