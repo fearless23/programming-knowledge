@@ -1,6 +1,3 @@
-// undefined == null  -> true
-// undefined === null -> false
-
 const a = Number("Hello");
 // Hello string cannot be converted to a number, thus a is NaN
 console.log("a is", a) // NaN
@@ -102,7 +99,4 @@ So, Number.isNaN is only true if provided value is NaN
 i.e Number.IsNan(NaN) -> true, everything else is false
 */
 
-// Nullish - null or undefined
-const isNullish = (a) => a == null;
-// NIL - undeclared, undefined, null or NaN
-const isNil = (a) => a == null || Number.isNaN(a);
+console.log("-------END------")
