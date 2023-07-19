@@ -49,10 +49,36 @@ Consider number `12.625`, 12 is the integer part and 0.625 is the fractional par
 - Exponent = 3
 - Sign = 0 (positive)
 - Mantissa = 100101
+- Sign and mantissa are stored in their locations, whereas exponent is modified (adding some bias) and then stored
+
+## Exponent Bias
+- Exponent is not stored directly , E\` = E + bias, E\` is stored instead
+- bias is `127` for f32 and `1023` for f64
 
 ## Limits
-- Exponent in f64 has 11 bits, thus max exponent can be is 2^11
-- Exponent in f32 has  8 bits, thus max exponent can be is 2^8
+- Exponent in f32 has  8 bits, thus exponent storable can be is  [0,2^8) = [0, 256)
+- Exponent in f64 has 11 bits, thus exponent storable can be is [0,2^11) = [0,2048)
+
+- f32: E\` = [0,256) = E + 127 => E = [-127,129)
+- f64: E\` = [0,1024) = E + 1023 => E = [-1023,1025)
+- We add bias of 127 to [-127,129) so that E\` is in [0,256) range
+- We add bias of 1023 to  [-1023,1025) so that E\` is in [0,2048) range
+
+- Since, number is reduced to 1.xxxx * 2 ^ exponent in binary
+- Max Number f32: 1.xxx * 2 ^ 129 or ~ 10^38 or 10^39
+- Min Number f32: 1.xxx * 2 ^ -127 or ~ 10^-38 or 10^-39
+- Max Number f64: 1.xxx * 2 ^ 1025 or 10^308
+- Min Number f64: 1.xxx * 2 ^ -1023 or 10^-308
+
 - 12 is `1100.101` -> `1.100101` * 2<sup>3</sup> (4 digit to left of decimal, can move decimal left by 3, thus exponent=3)
-- Thus, Max integer part for f64 can be `1--11zeroes--.--some--` i.e 2 ^ 11
-- Thus, Max integer part for f32 can be `1--8zeroes--.--some--` i.e 2 ^ 11
+- stored exponent = 3 + 127=130=10000010 for f32 
+- or 3 + 1023=1026=10000000010 for f64
+
+## Why the bias is added
+- [Article](https://stackoverflow.com/questions/19864749/why-do-we-bias-the-exponent-of-a-floating-point-number)
+Lets start with a number, positive or negative, represented in binary.
+- We have sign, mantissa and exponent
+- Our exponent can be positive or negative but to store the exponent we have 8 or 11 bits without sign.
+- So, by adding the bias, we convert any negative exponent to >= 0.
+- Thus, bias is added to avoid storing sign
+- There are other reason to use it as a bias (beyond scope), because we could have stored exponent`s sign in first bit and remaining bits for exponent value.

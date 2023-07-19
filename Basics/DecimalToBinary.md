@@ -50,6 +50,10 @@ So, fractional representation of fractional in binary comes with a price of prec
 > and then collect the integral parts
 > Method 2 can be used in coding
 
+> Note: storing 315 in 8 spaces is 00000315, since 00000315 =315  
+> Note: storing 0.315 in 8 spaces is 0.3150000, since 0.3150000 = 0.315  
+> Note: We add zeroes in front for integer part, and at last for fractional part  
+
 ### fraction = .625, precision = 4 (method 1)
 - 0.625 = 10 / 16
 - 10 in binary is 1010
@@ -96,10 +100,9 @@ So, fractional representation of fractional in binary comes with a price of prec
 ### fraction = .2, precision = 23 (method 1)
 - 0.2 = 1677721.6 / 2^23 ~ 1677721 / 2 ^23
 - 1677721 in binary 110011001100110011001
-- So, .2 in binary is .00110011001100110011001 with precision 23
+- So, .2 in binary is .11001100110011001100100 with precision 23
 - 1677721 / 2 ^23 = 0.19999992847442626953
 - So, .2 will read as 0.19999992847442626953 stored in precision 23
-
 
 ### fraction = .2, precision = 52 (method 1)
 - 0.2 = 1677721.6 / 2^23 ~ 1677721 / 2 ^23
