@@ -15,3 +15,9 @@ Publish all of these to new blog (or medium) and try getting ads money.
 - Purpose: 
 - To get famous in community for simplifying weird concepts
 - Better at communication
+
+- [Non-blocking I/O and how Node uses it, in friendly terms: blocking vs async IO, CPU vs IO](https://www.youtube.com/watch?v=wB9tIg209-8)
+- [All engineering blogs](https://allengineeringblogs.com/selection)
+
+## ULID vs UUID
+- [Article](https://blog.bitsrc.io/ulid-vs-uuid-sortable-random-id-generators-for-javascript-183400ef862c)
