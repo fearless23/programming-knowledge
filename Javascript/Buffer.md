@@ -8,6 +8,25 @@
 
 - `Buffer.alloc(n)` * Allocates a new Buffer of `n` bytes. 
 
+
+## Definition
+Any content stored in memory is stored in bytes. Buffer gives us the low-level api to interact with bytes and also create bytes of memory to insert content.
+
+Buffer are low-level representation 
+
+## 1. Build/Allocate
+Allocate some `n` bytes of memory and then write to it.
+
+## 2. Build from
+Build from ArrayBuffer/Uint8Array/Buffer or content
+
+## 3. Convert/Transform
+Since, buffer represent bytes we can transform from one encoding to another
+>> Buffer.from takes input such as Buffer, ArrayBuffer, or Array or an Array-like Object
+>> Buffer.from("hexContent","hex"); content in string form, encoding is required(default to utf-8)
+>> Buffer.from(BytesArray); no encoding required
+>> Buffer.from(ArrayBuffer); no encoding required
+
 ```js
 import { Buffer } from 'node:buffer';
 const buf = Buffer.alloc(6); // 6 bytes memory reserved

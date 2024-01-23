@@ -17,5 +17,11 @@ const k = Buffer.from([106, 97, 115, 115, 105], "hex");
 console.log("k", k.toString()) // jassi
 console.log("k - ascii ->".padStart(15), k.toString("ascii")) // jassi
 console.log("k - binary ->".padStart(15), k.toString("binary")) // jassi
-console.log("k - hex ->".padStart(15), k.toString("hex")) // 6a61737369
+console.log("k - hex ->".padStart(15), k.toString("hex")) // 6a61737369 
+// hex to decimal ( 6a --> 106, 61---> 97, 73 --> 115, 73 --> 115, 69 --> 105 )
+console.log("k - base64 ->".padStart(15), k.toString("base64")) // amFzc2k=
 console.log("k - utf16le ->".padStart(15), k.toString("utf16le")) // 慪獳
+
+
+// Buffers can be concat together, since they are just array of bytes
+// const newBuff = Buffer.concat([e, j, j])

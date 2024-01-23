@@ -37,7 +37,7 @@ const obj = { p:1, r: undefined };
 obj.q // undefined as q is undeclared
 obj.r // undefined as r is explicitly set to undefined
 ```
-In above example, obj.q and obj.r are both undefined, however r is explicitly set to undefined, but `q` is not even declared. To diffrentiate b/w these two use
+In above example, obj.q and obj.r are both undefined, however r is explicitly set to undefined, but `q` is not even declared. To differentiate b/w these two use
 - `Object.hasOwn(obj, "q") -> false`
 - `Object.hasOwn(obj, "r") -> true`
 
