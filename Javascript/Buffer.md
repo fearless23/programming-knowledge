@@ -6,8 +6,11 @@
 - Buffer is only available in nodejs(i.e server side)
 - whereas ArrayBuffer is Javascript inbuilt DataStructure
 
-- `Buffer.alloc(n)` * Allocates a new Buffer of `n` bytes. 
+- Buffer objects are used to represent a fixed-length sequence of bytes
+- The Buffer class is a subclass of JavaScript's Uint8Array class
+- `Buffer.alloc(n)` * Allocates a new Buffer of `n` bytes.
 
+- Recommended Read: first.js
 
 ## Definition
 Any content stored in memory is stored in bytes. Buffer gives us the low-level api to interact with bytes and also create bytes of memory to insert content.
@@ -38,6 +41,13 @@ console.log(buf.toJSON()); // { type: 'Buffer', data: [97, 0, 0, 0, 0, 0] } // d
 console.log(buf[1]); // 0
 console.log(buf[0]); // 97
 ```
+
+// Creates a Buffer containing the bytes [1, 2, 3].
+const buf4 = Buffer.from([1, 2, 3]);
+
+// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries
+// are all truncated using `(value & 255)` to fit into the range 0–255.
+const buf5 = Buffer.from([257, 257.5, -255, '1']);
 
 ```js
 const e = Buffer.from("jassi");
