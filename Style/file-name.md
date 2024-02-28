@@ -1,8 +1,9 @@
-## How to name files
+# How to name files
 
-https://developers.google.com/style/filenames
+### Motivation
+[Google Developers Style Guide](https://developers.google.com/style/filenames)
 
-## Conclusion
+### Conclusion
 Example: avoiding-cliches.ts
 
 - Use kebab case
