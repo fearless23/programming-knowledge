@@ -1,10 +1,11 @@
 ## Context free naming
 
-Naming should be context free when designing data strcutures, only context is the object itself, once the consumer who uses it can rename or provide additional context.
+Naming should be context free when designing data structures, only context is the object itself, once the consumer who uses it can rename or provide additional context.
 
 ##
 ```js
-const user = { foo: 123, age: 23, firstName: "jaspreet" }; // context is user itself
+// context is user itself
+const user = { foo: 123, age: 23, firstName: "jaspreet" };
 // vs
 const user2 = { userFoo: 123, userAge: 23, userFirstName: "jaspreet" }
 ```
@@ -16,8 +17,9 @@ const car = { foo: 123, model: "CIVIC", make: "Honda" };
 const car2 = { carFoo: 123, carModel: "CIVIC", carMake: "Honda" }
 ```
 
-In examples abouve car is better than car2 and user is better than user2.
-When adding car or user in front of fields we provide un-neccessary context which serves no purpose.
+In examples above car is better than car2 and user is better than user2.
+When adding car or user in front of fields we provide un-necessary context
+which serves no purpose.
 
 ```js
 // using car and user
@@ -44,14 +46,14 @@ Fields which are reserved as name, should not be used as field names like id,  d
 const car = { id:"reservedField", carId: "" }
 // here, we choose carId, for differentiating it from id only, not for adding context
 const user = { userId:"id of user", childId: "" }
-// similarly, childId do not add context, it diffrentiates it from id or userId, context is still user.
+// similarly, childId do not add context, it differentiates it from id or userId, context is still user.
 ```
 
 This way having simpler fields names, will keep it read-able, maintainable and any new context can be added without affecting the existing.
 
 ## Sub-contexts
-We can prefix car in front of every field, but it should be done to not support use-cases, but to create
-sub-context within object
+We can prefix car in front of every field, but it is not done to support use-cases, 
+instead to create sub-context within object
 ```js
 const car = {
   carBrand: "Honda",
@@ -68,11 +70,13 @@ const car2 = {
   seatMakerYear: 2021,
   makerYear: 2022,
 }
-// Our object contains multiple context, car itself, seat and lights, so adding car in front of fields
-// make more sense, but this is only for sub-context, not to support use-cases for consumer.
+```
+Our object contains multiple context, car itself, seat and lights, so adding car in front of fields 
+makes sense, but this is only for sub-context, not to support use-cases for consumer.
 
 
 // Also, consider, the sub-context do not interfere
+```js
 const car = {
   brand: "Honda",
   makerYear: 2022,
@@ -83,8 +87,10 @@ const car = {
     brand: "DFG",
     makerYear: 2021,
   }
-} // better
-// vs
+}
+// better
+```
+```js
 const car2 = {
   carBrand: "Honda",
   carMakerYear: 2022,
@@ -115,7 +121,7 @@ differentiate inputs
 const getUser = ({ id }) => {};
 // vs
 const getUser = ({ userId }) => {};
-const getUser = ({ id, childId }) => {}; // id means in context of getUser, childId have child-prefix to diffrentiate from id, see example below
+const getUser = ({ id, childId }) => {}; // id means in context of getUser, childId have child-prefix to differentiate from id, see example below
 const getChild = ({ id, parentId }) => {} // id means in context of getChild
 ```
 

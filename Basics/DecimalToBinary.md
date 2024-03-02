@@ -18,7 +18,7 @@
 
 
 ## Loss of numbers with rounding errors 
-- We loose some accuracy when using floating point arithematic
+- We loose some accuracy when using floating point arithmetic
 
 ### Example 1
 - 1/3 in decimal is 0.333333 (repeating digits)

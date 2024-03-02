@@ -3,7 +3,7 @@ Patterns used in programming design to help write better code.
 
 [Refactoring Guru Website](https://refactoring.guru/design-patterns/catalog)
 
-## Creational Patterns
+## Creation Patterns
 These patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code.
 - Factory Method
 - Abstract Factory

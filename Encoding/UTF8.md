@@ -14,4 +14,4 @@ UTF-8 is the dominant encoding for the World Wide Web (and internet technologies
 
 
 ## How many characters/graphenes
-Unicode comprises 1,114,112 code points in the range 0hex to 10FFFFhex. The Unicode code space is divided into seventeen planes (the basic multilingual plane, and 16 supplementary planes), each with 65,536 (= 216) code points. Thus the total size of the Unicode code space is 17 × 65,536 = 1,114,112.
+Unicode comprises 1,114,112 code points in the range 0hex to 10FFFF hex. The Unicode code space is divided into seventeen planes (the basic multilingual plane, and 16 supplementary planes), each with 65,536 (= 216) code points. Thus the total size of the Unicode code space is 17 × 65,536 = 1,114,112.

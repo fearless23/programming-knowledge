@@ -33,6 +33,6 @@ Represent the characters of unicode a total of 1,112,064 valid code points i.e c
 - UTF-16 uses one or two 16 bit code units
 
 ## Further readings
-- Read code points, endianness, code unit, planes(unicode) to understand how a unicode character is stored using
+- Read code points, endian-ness, code unit, planes(unicode) to understand how a unicode character is stored using
 UTF-8 or UTF-16. 
 - ASCII is just 1-128 characters.

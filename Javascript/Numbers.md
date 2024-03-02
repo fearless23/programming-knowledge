@@ -13,6 +13,8 @@ a = 11.2 + 11.1;
 console.log(a) // 22.299999999999997, not 22.3
 ```
 - Use decimal.js, bignumber.js for accurate math calculation in Javascript
+- [Link to accurate math lib comparison](https://dev.to/fvictorio/a-comparison-of-bignumber-libraries-in-javascript-2gc5)
+- [Article from author](https://github.com/MikeMcl/big.js/wiki)
 
 ## Integers in f64
 Javascript represent both integers and floats in f64. Floats are represented in f64 as is, 
