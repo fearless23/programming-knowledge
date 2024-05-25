@@ -1,7 +1,7 @@
 # A.C.I.D
 
 Properties of a database
-- `A` - `Atomicity`:  Multiple operations can be grouped into a single logical entity.
+- `A` - `Atomicity`: [Consistent Write] Multiple operations can be grouped into a single logical entity.
 - `C` - `Consistency`: When the data and data operations follows a set of rules.
 - `I` - `Isolation`: Simultaneous operations on the same data never see each other`s in-progress work.
 - `D` - `Durability`: Completed updates will not be lost if system crashes.
@@ -53,7 +53,7 @@ It is database property such that any simultaneous operations on the same data n
 Let`s consider the example of transfer $100 from A to B in atomicity. If another query (sum of balance of user A and balance of user B) is executed while the database transaction is happening. We have 3 scenarios
 1. Query happens before db transaction started: sum = 700
 2. Query happens after db transaction completed: sum = 700
-3. Query happens in b/w db transaction:  
+3. Query happens in b/w db transaction:
     - If query happens after operation 1, sum can be 600 which is not valid
 
 Thus, isolation provides ability such that changes happening in atomic transaction are not visible to query and vice-versa. Changes performed by any database operations should only be visible to other operations only after it has completed.
