@@ -1,22 +1,26 @@
-import { getData, getUser } from "./funcs";
+import { getData, GetDataError, getUser, GetUserError } from "./funcs";
 
+/*
 // use this when funcs use base/base1
-// const main1 = async (userId: string) => {
-//   const int = Math.floor(Math.random() * 10);
+const main1 = async (userId: string) => {
+  const int = Math.floor(Math.random() * 10);
 
-//   const res = getData(int);
-//   if (res.error) {
-//     console.log("ERROR-getData", res.data.code)
-//     return;
-//   }
-//   const userRes = await getUser(userId)
-//   if (userRes.error) {
-//     console.log("ERROR-getUser", userRes.data)
-//     return;
-//   }
-//   console.log("RESULT", { user: userRes.data, data: res.data })
-// }
+  const res = getData(int);
+  if (res.error) {
+    console.log("ERROR-getData", res.data.code)
+    return;
+  }
+  const userRes = await getUser(userId)
+  if (userRes.error) {
+    console.log("ERROR-getUser", userRes.data)
+    return;
+  }
+  console.log("RESULT", { user: userRes.data, data: res.data })
+}
+main1("1").then()
+*/
 
+/*
 // use this when funcs use base/base2
 const main2 = async (userId: string) => {
   const int = Math.floor(Math.random() * 10);
@@ -39,6 +43,41 @@ const main2 = async (userId: string) => {
   }
   console.log("RESULT", { user, modifiedData })
 }
-
-// main1("1").then()
 main2("1").then()
+*/
+
+// /*
+const mainAdvance = async (userId: string) => {
+  const int = Math.floor(Math.random() * 10);
+
+  // this is better due to better naming
+  const res = getData(int);
+  // const ee = res.unwrap() // throws if error  --> can be replaced-with extendError
+  // const ee = res.expect("") // throws if error and extend error  --> can be replaced-with extendError
+  // const ee = res.orElse(() => 1); // GetUserResult or 1 --> can be replace with simple javascript
+  if (res.isErr()) {
+    const error1 = res.getError();
+    if (error1.code !== "BAD_REQUEST") {
+      // do not consider error;; if bad-BAD_REQUEST
+      console.log("ERROR-getData", error1)
+      return;
+    }
+  }
+  const data = res.getValue(); // is GetDataResult
+  const error = res.getError(); // is GetDataError | null 
+  if (error?.code === "BAD_REQUEST") {
+    console.log("is--bad--request")
+  }
+  const modifiedData = data ?? { status: error?.code }
+
+  const res2 = await getUser(userId)
+  if (res2.isErr()) {
+    const error2 = res2.getError();
+    console.log("ERROR-getUser", error2)
+    return;
+  }
+  const user = res2.getValue();
+  console.log("RESULT", { user, data: modifiedData })
+}
+mainAdvance("1").then()
+// */

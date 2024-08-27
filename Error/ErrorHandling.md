@@ -145,4 +145,32 @@ const doSomething = parse(response);
 ```
 
 ## How to decide error vs data (TLDR: best-guess)
-- Check ./error.ts
+- Check project (using simple error handling)
+
+## NPM Packages
+There are packages similar to Rust Response/Result thing
+1. https://www.npmjs.com/package/ts-results
+2. https://www.npmjs.com/package/oxide.ts
+3. https://www.npmjs.com/package/neverthrow (preferred)
+
+These packages offers advanced features like .wrap, .unwrap, .expect, .orElse etc...
+- my-chat-gpt-link: https://chatgpt.com/share/4da15cec-c183-4120-b6fd-d1db19e89d85
+
+## Benefits of advanced features
+- [error,null] or [null, error]: simpler go style
+- Result<> from rust helps with monad; instead of doing following
+```ts
+const [error1,user] = getUser(1);
+if(error1!=null) return err(error1);
+const [error2,city] = getCity(1);
+if(error2!=null) return err(error2);
+return ok({user,city})
+```
+
+```ts
+const [error1,user] = getUser(1);
+if(error1!=null) return err(error1);
+const [error2,city] = getCity(1);
+if(error2!=null) return err(error2);
+return ok({user,city})
+```

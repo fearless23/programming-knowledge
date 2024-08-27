@@ -1,10 +1,10 @@
 import { AnyJson } from "./base/type";
 
 // change this to base1
-import { ok, err, type ResultAsync, type Result } from "./base/base2";
+import { ok, err, type ResultAsync, type Result } from "./base/advance";
 
-type GetDataResult = { status: "CREATED" | "NOT_FOUND" | "OK" | "UNKNOWN_STATUS" }
-type GetDataError = { code: "UNAUTHORIZED" | "FORBIDDEN" | "INTERNAL_SERVER_ERROR" | "BAD_REQUEST" }
+export type GetDataResult = { status: "CREATED" | "NOT_FOUND" | "OK" | "UNKNOWN_STATUS" }
+export type GetDataError = { code: "UNAUTHORIZED" | "FORBIDDEN" | "INTERNAL_SERVER_ERROR" | "BAD_REQUEST" }
 export const getData = (n: number): Result<GetDataResult, GetDataError> => {
   switch (n) {
     case 1:
@@ -27,8 +27,8 @@ export const getData = (n: number): Result<GetDataResult, GetDataError> => {
 };
 
 type User = { name: string, age: number, email?: string }
-type GetUserResult = User | undefined
-type GetUserError = { code: "DATABASE_ERROR", userId: string } & AnyJson
+export type GetUserResult = User | undefined
+export type GetUserError = { code: "DATABASE_ERROR", userId: string } & AnyJson
 export const getUser = async (userId: string): ResultAsync<GetUserResult, GetUserError> => {
   const randomError1 = Math.random() > 0.5;
   if (randomError1) {
