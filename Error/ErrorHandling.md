@@ -60,6 +60,13 @@ return output;
 In above example, #1 we use try-catch, error.code is not standard in many languages and typescript do not give access to Error.Code values as enum
 #2 example: since no error is thrown, status is strongly typed
 
+## note
+in a typical aws s3 getFile function, file-not-found is thrown as error
+but we don`t treat file-not-found as error, if for example getFile function 
+will be used in a function called uploadFile, which will upload new file only 
+if there is no file at that path. so, instead of try-catch in typical fashion, we can 
+return [data,null] or [error,null] from getFile.
+
 more examples
 
 
