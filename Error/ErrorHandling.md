@@ -143,3 +143,6 @@ const response = myFunction!().extend(i => {
 const doSomething = parse(response);
 // By adding `!` at the end of function, make the response = ResultData and if function return ErrorData it will be returned from here without going to next line
 ```
+
+## How to decide error vs data (TLDR: best-guess)
+- Check ./error.ts
