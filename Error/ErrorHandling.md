@@ -6,7 +6,9 @@ From experience few points are observed
 - better to give error some code for search/filter purpose
 - better to give error some group for top-level search/filter like SERVER or CLIENT (optionally can be 400|500)
 
-
+## typescript or javascript
+- throwing error in javascript/typescript do not strongly-type the error
+- whereas returning error as class/data etc.. will have it strongly typed, thus it offers much better typing and easy to debug.
 
 ## Why error as data is better
 >> Any function in any language will either return something or throw error, errors can be caught or if returned as data can be compared. Ultimately, we have `n` type of state returned by a function.
