@@ -1,0 +1,16 @@
+{
+  "name": "stack-trace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "stack-trace": "1.0.0-pre2"
+  }
+}
