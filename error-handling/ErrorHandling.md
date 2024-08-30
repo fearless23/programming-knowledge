@@ -177,9 +177,12 @@ return ok({user,city})
 ```
 
 ```ts
-const [error1,user] = getUser(1);
-if(error1!=null) return err(error1);
-const [error2,city] = getCity(1);
-if(error2!=null) return err(error2);
-return ok({user,city})
+const res = getUser(1);
+if(res.isErr()) return res;
+const res2 = getCity(1);
+if(res2.isErr()) return res2;
+return ok({ user: res.getValue(), city:res.getValue() })
 ```
+
+Note: merging ok results can be little more verbose using getValue() everywhere
+// Can use getter, setter

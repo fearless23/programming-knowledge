@@ -4,7 +4,11 @@ import { AnyJson } from "./base/type";
 import { ok, err, type ResultAsync, type Result } from "./base/advance";
 
 export type GetDataResult = { status: "CREATED" | "NOT_FOUND" | "OK" | "UNKNOWN_STATUS" }
-export type GetDataError = { code: "UNAUTHORIZED" | "FORBIDDEN" | "INTERNAL_SERVER_ERROR" | "BAD_REQUEST" }
+// export type GetDataError = { code: "UNAUTHORIZED" | "FORBIDDEN" | "INTERNAL_SERVER_ERROR" | "BAD_REQUEST" }
+export type GetDataError = { code: "UNAUTHORIZED" }
+  | { code: "FORBIDDEN" }
+  | { code: "INTERNAL_SERVER_ERROR" }
+  | { code: "BAD_REQUEST" }
 export const getData = (n: number): Result<GetDataResult, GetDataError> => {
   switch (n) {
     case 1:
@@ -25,6 +29,7 @@ export const getData = (n: number): Result<GetDataResult, GetDataError> => {
       return ok({ status: "UNKNOWN_STATUS" as const })
   }
 };
+
 
 type User = { name: string, age: number, email?: string }
 export type GetUserResult = User | undefined

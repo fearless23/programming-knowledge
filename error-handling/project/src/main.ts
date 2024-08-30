@@ -56,27 +56,25 @@ const mainAdvance = async (userId: string) => {
   // const ee = res.expect("") // throws if error and extend error  --> can be replaced-with extendError
   // const ee = res.orElse(() => 1); // GetUserResult or 1 --> can be replace with simple javascript
   if (res.isErr()) {
-    const error1 = res.getError();
-    if (error1.code !== "BAD_REQUEST") {
+    const isBadRequest = res.matchCode("BAD_REQUEST");
+    if (!isBadRequest) {
       // do not consider error;; if bad-BAD_REQUEST
-      console.log("ERROR-getData", error1)
+      console.log("ERROR-getData", res.error)
       return;
     }
   }
-  const data = res.getValue(); // is GetDataResult
-  const error = res.getError(); // is GetDataError | null 
-  if (error?.code === "BAD_REQUEST") {
-    console.log("is--bad--request")
-  }
-  const modifiedData = data ?? { status: error?.code }
+  const modifiedData = res.value ?? { status: res.error.code }
 
   const res2 = await getUser(userId)
   if (res2.isErr()) {
-    const error2 = res2.getError();
+    const error2 = res2.error;
     console.log("ERROR-getUser", error2)
     return;
   }
-  const user = res2.getValue();
+  
+  const res3 = res2.map<"Hello">(i=> ("Hello" as const)).value
+  
+  const user = res2.value;
   console.log("RESULT", { user, data: modifiedData })
 }
 mainAdvance("1").then()
