@@ -33,3 +33,10 @@ const useGetData1 = (n1: number, n2: number) => {
   }
   // else continue
 }
+
+
+const throwError = (a: number) => {
+  if (a >= 1) return a;
+  throw new Error("a is less than 1")
+}
+
