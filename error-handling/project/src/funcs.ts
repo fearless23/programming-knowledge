@@ -5,10 +5,11 @@ import { ok, err, type ResultAsync, type Result } from "./base/advance";
 
 export type GetDataResult = { status: "CREATED" | "NOT_FOUND" | "OK" | "UNKNOWN_STATUS" }
 // export type GetDataError = { code: "UNAUTHORIZED" | "FORBIDDEN" | "INTERNAL_SERVER_ERROR" | "BAD_REQUEST" }
-export type GetDataError = { code: "UNAUTHORIZED" }
-  | { code: "FORBIDDEN" }
-  | { code: "INTERNAL_SERVER_ERROR" }
-  | { code: "BAD_REQUEST" }
+export type GetDataError = { code: "UNAUTHORIZED", message?: "U" }
+  | { code: "FORBIDDEN", message?: "F" }
+  | { code: "INTERNAL_SERVER_ERROR", message?: "I" }
+  | { code: "BAD_REQUEST", message?: "B", data?: { a: 1 } }
+
 export const getData = (n: number): Result<GetDataResult, GetDataError> => {
   switch (n) {
     case 1:

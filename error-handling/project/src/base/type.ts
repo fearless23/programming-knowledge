@@ -1,3 +1,3 @@
-export type AnyJson = Record<string, string | number>
+export type AnyJson = Record<string, unknown>
 
-export type MyError = { code: string, message?: string } & AnyJson
+export type MyError = { code: string, message?: string, data?: AnyJson }

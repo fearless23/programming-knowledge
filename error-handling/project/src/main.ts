@@ -65,6 +65,7 @@ const mainAdvance = async (userId: string) => {
   }
   const modifiedData = res.value ?? { status: res.error.code }
 
+
   const res2 = await getUser(userId)
   if (res2.isErr()) {
     const error2 = res2.error;
