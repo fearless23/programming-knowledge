@@ -186,3 +186,19 @@ return ok({ user: res.getValue(), city:res.getValue() })
 
 Note: merging ok results can be little more verbose using getValue() everywhere
 // Can use getter, setter
+
+
+
+## error tags
+- We can add more properties to error, code, httpCode, group to have more filters
+- One way to avoid adding to many fields at the top, is to add tags array at top-level
+- So, code, httpCode, message:string, tags: string[], data (any)
+
+
+## Link All
+- Return Error as data
+- Error returned should have a standard structure
+- Keep a list of codes in a object where Record<code, ErrorInfo>, (refer humanLogs)
+- ErrorInfo: code, defaultMessage, defaultHttpCode, customMessage using data, defaultTags and other values
+- when returning error, return ErrorData = getErrorInfo(ErrorInfo.code, overrides)
+- while logging the error, you can add more info from Record<code, ErrorInfo>, solutions etc...
