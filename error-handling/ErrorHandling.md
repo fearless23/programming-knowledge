@@ -202,3 +202,4 @@ Note: merging ok results can be little more verbose using getValue() everywhere
 - ErrorInfo: code, defaultMessage, defaultHttpCode, customMessage using data, defaultTags and other values
 - when returning error, return ErrorData = getErrorInfo(ErrorInfo.code, overrides)
 - while logging the error, you can add more info from Record<code, ErrorInfo>, solutions etc...
+- error.code should not clash: thats why it is better to use Record<code, ErrorInfo>;; even when catching node_modules library errors and make them your own
